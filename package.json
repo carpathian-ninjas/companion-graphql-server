@@ -1,0 +1,41 @@
+{
+  "name": "@carpathian-ninjas/companion-node",
+  "version": "1.0.0",
+  "description": "backend for companion",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carpathian-ninjas/companion-node.git"
+  },
+  "keywords": [
+    "companion",
+    "graphql",
+    "carpathian-ninjas"
+  ],
+  "author": "Yaroslav Dobzhanskyi <yarsky@carpathian.ninja>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/carpathian-ninjas/companion-node/issues"
+  },
+  "homepage": "https://github.com/carpathian-ninjas/companion-node#readme",
+  "dependencies": {
+    "apollo-server": "^2.13.0",
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.5",
+    "express": "^4.17.1",
+    "graphql": "^15.0.0",
+    "graphql-import": "^1.0.2",
+    "home-dir": "^1.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "passport": "^0.4.1",
+    "passport-github": "^1.1.0",
+    "passport-jwt": "^4.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "@carpathian-ninjas/eslint-config-base": "^1.1.1"
+  }
+}

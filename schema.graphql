@@ -1,0 +1,88 @@
+type Coach {
+  id: ID!
+  login: String!
+}
+
+interface RepositoryReference {
+  owner: String!
+  name: String!
+}
+
+interface IssueReference {
+  number: Int!
+}
+
+type Trainee implements RepositoryReference {
+  id: ID!
+  owner: String!
+  name: String!
+}
+
+type TasksRepository {
+  id: ID!
+  repository: RepositoryLink!
+}
+
+type RepositoryLink implements RepositoryReference {
+  owner: String!
+  name: String!
+}
+
+type IssueLink implements RepositoryReference & IssueReference {
+  owner: String!
+  name: String!
+  number: Int!
+}
+
+type Task {
+  id: ID!
+  issue: IssueLink!
+  files: [String]
+  information: TaskInformation
+}
+
+interface TaskInformationEntity {
+  body: String!
+}
+
+type TaskInformationMarkdownEntity implements TaskInformationEntity {
+  body: String!
+  type: TaskInformationEntityType!
+}
+
+type TaskInformationUrlEntity implements TaskInformationEntity {
+  body: String!
+  type: TaskInformationEntityType!
+  title: String!
+  image: String!
+}
+
+type TaskInformationYoutubeEntity implements TaskInformationEntity {
+  body: String!
+  type: TaskInformationEntityType!
+}
+
+type TaskInformationImageEntity implements TaskInformationEntity {
+  body: String!
+  type: TaskInformationEntityType!
+}
+
+type TaskInformation {
+  main: [TaskInformationEntity]!
+  additional: [TaskInformationEntity]!
+  answer: TaskInformationEntity!
+}
+
+enum TaskInformationEntityType {
+  URL
+  MARKDOWN
+  YOUTUBE
+}
+
+type Query {
+  tasks: [Task]
+}
+
+type Mutation {
+  import(owner: String!, name: String!): [Task]
+}
